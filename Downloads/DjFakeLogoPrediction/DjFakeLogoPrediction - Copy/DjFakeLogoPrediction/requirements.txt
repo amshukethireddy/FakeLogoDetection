@@ -1,0 +1,6 @@
+#python 3.11.3
+Django
+numpy==1.25.1
+pandas
+tensorflow==2.14.0
+efficientnet==1.1.1

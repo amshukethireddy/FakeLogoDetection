@@ -1,0 +1,87 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block body %}
+  <!-- ======= Intro Section ======= -->
+  <div class="intro intro-carousel swiper position-relative" style="background-color: #9d4edd; height: 720px; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; color: white;">
+    <div class="overlay overlay-a"></div>
+    <div class="intro-content display-table">
+      <div class="table-cell">
+        <div class="container">
+          <div class="row">
+            <div class="col-lg-12">
+              <div class="intro-body">
+                <h1 class="intro-title mb-4" fontcolor=#fff style="font-size: 4rem; font-weight: bold;color:white">
+                  <span id="typing-text"></span>
+                </h1>
+                <p class="intro-subtitle intro-price" style="font-size: 2rem;">
+                  <span id="typing-subtext"></span>
+                </p>
+                <button class="button" onclick="location.href='/predict-data'">Get Started</button>
+
+                
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div><!-- End Intro Section -->
+
+ <!-- End #main -->
+
+  <script>
+    function typeText(element, text, speed) {
+      let index = 0;
+      function type() {
+        if (index < text.length) {
+          element.innerHTML += text.charAt(index);
+          index++;
+          setTimeout(type, speed);
+        }
+      }
+      type();
+    }
+
+    document.addEventListener("DOMContentLoaded", function() {
+      typeText(document.getElementById("typing-text"), "FAKE LOGO DETECTION SYSTEM", 100);
+      setTimeout(() => {
+        typeText(document.getElementById("typing-subtext"), "", 100);
+      }, 2000);
+    });
+  </script>
+
+  <style>
+    body {
+      overflow-y: scroll;
+      height: 100vh;
+      scroll-behavior: smooth;
+    }
+
+    .scrolling-content {
+      max-width: 800px;
+      margin: 50px auto;
+      padding: 20px;
+      font-size: 1.2rem;
+      line-height: 1.6;
+    }
+    
+    /* From Uiverse.io by felipesntr */ 
+    button {
+      font-size: 1rem;
+      padding: 0.8em 2em;
+      background-color: #000;
+      border: 3px solid rgb(255, 255, 255);
+      border-radius: 1em;
+      color: #fff;
+      font-weight: bolder;
+      transition: cubic-bezier(0.68, -0.55, 0.265, 1.55) 0.4s;
+      box-shadow: -5px 5px 0px 0px rgb(255, 255, 255);
+    }
+
+    button:hover {
+      transform: translate(5px, -5px);
+    }
+  </style>
+
+{% include 'footer.html' %}
+{% endblock %}

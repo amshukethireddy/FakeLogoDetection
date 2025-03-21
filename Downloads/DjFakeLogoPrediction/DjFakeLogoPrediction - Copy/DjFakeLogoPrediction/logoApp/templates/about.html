@@ -1,0 +1,70 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block body %}
+
+<main id="main" class="mb-5">
+  <!-- ======= Intro Single ======= -->
+  <section class="intro-single">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12 col-lg-8">
+          <div class="title-single-box">
+            <h1 class="title-single">About Fake Logo Detection System</h1>
+          </div>
+        </div>
+        <div class="col-md-12 col-lg-4">
+          <nav aria-label="breadcrumb" class="breadcrumb-box d-flex justify-content-lg-end">
+            <ol class="breadcrumb">
+              <li class="breadcrumb-item">
+                <a href="{% url 'home' %}">Home</a>
+              </li>
+              <li class="breadcrumb-item active" aria-current="page">
+                About
+              </li>
+            </ol>
+          </nav>
+        </div>
+      </div>
+    </div>
+  </section><!-- End Intro Single -->
+
+  <!-- ======= About Section ======= -->
+  <section class="section-about">
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-12 position-relative">
+          
+          <div class="sinse-box">
+            <h3 class="sinse-title">Fake Logo Detection
+              <br> Powered by EfficientNet Algorithm
+            </h3>
+            <p style="color: #ffffff;">AI-Driven Logo Authentication</p>
+          </div>
+        </div>
+        <div class="col-md-12 section-t8">
+          <div class="title-box-d">
+            <h3 class="title-d">Ensuring Authenticity with AI</h3>
+          </div>
+          <p class="color-text-a">
+            The Fake Logo Detection System is a powerful web-based solution designed to detect counterfeit logos of renowned brands such as Adidas, Samsung, Puma, and Twitter. Using state-of-the-art deep learning techniques, this system accurately classifies fake and authentic logos, assisting businesses and consumers in verifying brand authenticity.
+          </p>
+          <p class="color-text-a">
+            Built with Python, Django, and SQLite, this project integrates cutting-edge AI frameworks like TensorFlow and Keras. The system leverages the EfficientNetB2 model for high-accuracy logo classification, employing image augmentation techniques for improved generalization. OpenCV enhances image processing, while Pickle is used to store and analyze training history. The intuitive interface, developed with HTML, CSS, JavaScript, and Bootstrap, ensures a seamless user experience.
+          </p>
+          <p class="color-text-a">
+            With dedicated User and Admin modules, the system offers secure authentication, real-time logo prediction, history tracking, feedback management, and administrative control. This innovative approach bridges AI and cybersecurity, providing a reliable solution for counterfeit logo detection.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section><!-- End About Section -->
+  <style>
+    body {
+    background-color: #c77dff !important;
+}
+
+  </style>
+
+</main><!-- End #main -->
+{% include 'footer.html' %}
+{% endblock %}

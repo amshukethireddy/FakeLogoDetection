@@ -1,0 +1,51 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block body %}
+<style>
+  label{
+    font-weight:bold;
+  }
+  small {
+    font-size:12px;
+    font-weight:normal;
+  }
+</style>
+<section class="section-services section-t8">
+    <div class="container mt-5" style="width:50%">
+    <h3>Fake Logo Prediction Form</h3><hr>
+    <div class="form">
+      {% if history_data %}
+        <h4 class="text-red">Result </h4>
+        <hr>
+        <h5>Prediction Output : {{history_data.predict_class}}</h5>
+        <h5>Max Probability : {{history_data.max_prob}}</h5>
+        <h5>Result Image : <img src="{{history_data.output_file.url}}" class="zoomable-image" id="output-img-data" style="width:100px;height:100px"/></h5>
+        <hr>
+      {% endif %}
+      <form class="form-a" action="" method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        <div class="container" style="width:100%">
+          <div class="row">
+            <div class="col-md-12 mb-2">
+              <div class="form-group">
+                <label class="pb-2" for="file-upload">Upload Image(for prediction)</label><br/>
+                <input type="file" class="form-control form-control-a" id="file-upload" name="file-upload" required>
+              </div>
+            </div>
+
+            <div class="col-md-12">
+              <button type="submit" class="btn btn-b">Upload Image</button>
+            </div>
+          </div>
+        </div>
+      </form>
+      <div class="container">
+          {% if history_data %}
+            <h4 align="center" style="color:green">{{output_message}}</h4><hr>
+          {% endif %}
+      </div>
+    </div>
+  </div>
+</section>
+{% include 'footer.html' %}
+{% endblock  %}

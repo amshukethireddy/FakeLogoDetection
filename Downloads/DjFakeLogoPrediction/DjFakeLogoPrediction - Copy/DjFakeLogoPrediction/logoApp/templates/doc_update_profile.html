@@ -1,0 +1,124 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block body %}
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<style>
+.field-icon {
+  float: right;
+  margin-left: -25px;
+  margin-top: -37px;
+  position: relative;
+  background:gray;
+  color:yellow;
+  z-index: 2;
+  padding:10px;
+}
+
+.field-icon:hover {
+  cursor:pointer;
+}
+</style>
+<section class="section-services section-t8">
+    <div class="container" style="width:60%">
+    <h3>My Profile</h3><hr>
+    <div class="form">
+      <form class="form-a" action="" method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        <div class="row">
+          <div class="col-md-6 mb-2">
+            <div class="form-group">
+              <label class="pb-2" for="Type">First name</label>
+              <input type="text" class="form-control form-control-a" placeholder="First Name" name="first_name" value="{{request.user.first_name}}">
+            </div>
+          </div>
+          <div class="col-md-6 mb-2">
+            <div class="form-group">
+              <label class="pb-2" for="Type">Last name</label>
+              <input type="text" class="form-control form-control-a" placeholder="Last Name" name="last_name" value="{{request.user.last_name}}">
+            </div>
+          </div>
+          <div class="col-md-6 mb-2">
+            <div class="form-group">
+              <label class="pb-2" for="Type">Email</label>
+              <input type="password" class="form-control form-control-a" id="email" placeholder="Email" name="username" value="{{request.user.username}}" readonly>
+              <span class="fa fa-eye field-icon toggle-password-2"></span>
+            </div>
+          </div>
+          {% comment %} <div class="col-md-6 mb-2">
+            <div class="form-group">
+              <label class="pb-2" for="Type">Password</label>
+              <input type="password" class="form-control form-control-a" placeholder="Password" name="password">
+            </div>
+          </div> {% endcomment %}
+          <div class="col-md-4 mb-2">
+            <div class="form-group">
+                <label class="pb-2" for="Type">Image</label>
+                <input type="file" class="form-control form-control-a" name="image">
+            </div>
+          </div>
+          <div class="col-md-2 mb-2">
+            <div class="form-group">
+                <img src="{% if doctor.image %}{{doctor.image.url}}{% endif %}" class="img-thumbnail">
+            </div>
+          </div>
+          <div class="col-md-6 mt-3">
+            <div class="form-group">
+                <label class="pb-2" for="mobile">Mobile</label>
+                <input type="password" class="form-control form-control-a" name="mobile" id="mobile" placeholder="Mobile" value="{{doctor.mobile}}">
+                <span class="fa fa-eye field-icon toggle-password"></span>
+            </div>
+          </div>
+
+          <div class="col-md-6 mb-2">
+            <div class="form-group mt-3">
+              <label class="pb-2" for="address">City</label>
+              <input type="text" class="form-control form-control-a" name="address" id="address" placeholder="City" value="{{doctor.address}}">
+            </div>
+          </div>
+          
+          <div class="col-md-6 mb-2">
+            <div class="form-group">
+                <label class="pb-2" for="specialization">Specialization</label>
+                <input type="text" class="form-control form-control-a" name="specialization" id="specialization"  placeholder="specialization" value="{{doctor.specialization}}">
+            </div>
+          </div>
+          
+          <div class="col-md-6 mb-2">
+            <div class="form-group mt-3">
+              <label class="pb-2" for="experience">Experience(Year)</label>
+              <input type="text" class="form-control form-control-a" name="experience" id="experience" placeholder="experience" value="{{doctor.experience}}">
+            </div>
+          </div>
+          
+          <div class="col-md-12">
+            <button type="submit" class="btn btn-b">Update</button>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.2/jquery.min.js"></script>
+
+<script>
+$(".toggle-password").click(function() {
+  $(this).toggleClass("fa-eye fa-eye-slash");
+  if ($("#mobile").attr("type") == "password") {
+    $("#mobile").attr("type", "text");
+  } else {
+    $("#mobile").attr("type", "password");
+  }
+});
+
+$(".toggle-password-2").click(function() {
+  $(this).toggleClass("fa-eye fa-eye-slash");
+  if ($("#email").attr("type") == "password") {
+    $("#email").attr("type", "email");
+  }
+  else {
+    $("#email").attr("type", "password");
+  }
+});
+</script>
+{% include 'footer.html' %}
+{% endblock  %} 
